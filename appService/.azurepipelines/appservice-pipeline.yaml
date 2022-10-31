@@ -1,0 +1,50 @@
+trigger: none
+
+variables:
+    vmImageName: 'terraform'
+    azureServiceConnection: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+    resourceGroupName: 'aya-devops-bicep-poc'
+    location: 'West US'
+    templateFile: 'appService/default/main.bicep'
+    parameterfile: 'appService/poc/parameters.json'
+    devtemplateFile: 'appService/dev/main.bicep'
+    devparameterfile: 'appService/dev/parameters.json'
+stages:
+    - stage: poc
+      jobs:
+      - deployment: deployPoC
+        continueOnError: false
+        environment: 'poc'
+        pool: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureCLI@2
+                  inputs:
+                    azureSubscription: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+                    scriptType: bash
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                        az --version
+                        az group create --name $(resourceGroupName) --location $(location)
+                        az deployment group create --resource-group $(resourceGroupName) --template-file 'appService/default/main.bicep' --parameters $(parameterfile)
+    - stage: dev
+      jobs:
+      - deployment: deployDev
+        continueOnError: false
+        environment: 'dev'
+        pool: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureCLI@2
+                  inputs:
+                    azureSubscription: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+                    scriptType: bash
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                        az --version
+                        az group create --name $(resourceGroupName) --location $(location)
+                        az deployment group create --resource-group $(resourceGroupName) --template-file $(devtemplateFile) --parameters $(parameterfile)

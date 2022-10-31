@@ -1,0 +1,25 @@
+trigger: none
+
+variables:
+    vmImageName: 'terraform'
+    azureServiceConnection: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+    resourceGroupName: 'aya-devops-bicep-poc'
+    location: 'West US'
+    templateFile: 'storageAccount/poc/main.bicep'
+    parameterfile: 'storageAccount/poc/parameters.json'
+    pool: $(vmImageName)
+stages:
+    - stage: poc
+      jobs:
+          - job: deployDev
+            continueOnError: false
+            steps:
+                - task: AzureCLI@2
+                  inputs:
+                    azureSubscription: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+                    scriptType: bash
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                        az --version
+                        az group create --name $(resourceGroupName) --location $(location)
+                        az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters $(parameterfile)

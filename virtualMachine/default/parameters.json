@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vmList": {
+        "value": [
+             "module-vm"
+           ]
+        },
+        "domainJoinUserName": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/23da525a-d36d-44ee-b61e-3975f3b4a907/resourceGroups/aya-devops-poc-rg/providers/Microsoft.KeyVault/vaults/ayadevopspoc"
+                },
+                "secretName": "domainJoinUserName"
+            }
+        },
+        "domainJoinUserPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/23da525a-d36d-44ee-b61e-3975f3b4a907/resourceGroups/aya-devops-poc-rg/providers/Microsoft.KeyVault/vaults/ayadevopspoc"
+                },
+                "secretName": "domainJoinUserPassword"
+            }
+        },
+        "adminUsername": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/23da525a-d36d-44ee-b61e-3975f3b4a907/resourceGroups/aya-devops-poc-rg/providers/Microsoft.KeyVault/vaults/ayadevopspoc"
+                },
+                "secretName": "vmadminUsername"
+            }
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/23da525a-d36d-44ee-b61e-3975f3b4a907/resourceGroups/aya-devops-poc-rg/providers/Microsoft.KeyVault/vaults/ayadevopspoc"
+                },
+                "secretName": "vmAdminPassword"
+            }
+        },
+        "vNet": {
+            "value": "/subscriptions/23da525a-d36d-44ee-b61e-3975f3b4a907/resourceGroups/aya-devops-poc-rg/providers/Microsoft.Network/virtualNetworks/aya-devops-poc-vnet/subnets/default"
+        }
+    }
+}
