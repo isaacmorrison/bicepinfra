@@ -11,7 +11,7 @@ Deploys an **Azure Network Security Group (NSG)** into an existing resource grou
 ## Module Reference
 
 ```
-br:ayapocacr.azurecr.io/bicepmodules/nsg:v1
+br:pocacr.azurecr.io/bicepmodules/nsg:v1
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ br:ayapocacr.azurecr.io/bicepmodules/nsg:v1
 ### Bicep
 
 ```bicep
-module nsg 'br:ayapocacr.azurecr.io/bicepmodules/nsg:v1' = {
+module nsg 'br:pocacr.azurecr.io/bicepmodules/nsg:v1' = {
   name: 'nsgDeploy'
   params: {
     location: resourceGroup().location

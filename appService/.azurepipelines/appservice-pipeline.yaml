@@ -2,7 +2,7 @@ trigger: none
 
 variables:
     vmImageName: 'terraform'
-    azureServiceConnection: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+    azureServiceConnection: 'service-connection'
     resourceGroupName: 'aya-devops-bicep-poc'
     location: 'West US'
     templateFile: 'appService/default/main.bicep'
@@ -22,7 +22,7 @@ stages:
               steps:
                 - task: AzureCLI@2
                   inputs:
-                    azureSubscription: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+                    azureSubscription: 'service-connection'
                     scriptType: bash
                     scriptLocation: inlineScript
                     inlineScript: |
@@ -41,7 +41,7 @@ stages:
               steps:
                 - task: AzureCLI@2
                   inputs:
-                    azureSubscription: 'Aya-DevOps-PoC-Ent-Subscription-service-connection'
+                    azureSubscription: 'service-connection'
                     scriptType: bash
                     scriptLocation: inlineScript
                     inlineScript: |

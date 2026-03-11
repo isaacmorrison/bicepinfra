@@ -38,7 +38,7 @@ Each module follows a consistent folder layout:
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) ≥ 2.40
 - [Bicep CLI](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) ≥ 0.15
 - An Azure subscription with appropriate RBAC permissions
-- Access to the ACR hosting the published module images (`ayapocacr.azurecr.io`)
+- Access to the ACR hosting the published module images (`pocacr.azurecr.io`)
 
 ## Usage
 
@@ -57,10 +57,10 @@ az deployment group create \
 
 ### Reference a module from your own Bicep template
 
-All modules are published to the private ACR at `ayapocacr.azurecr.io`. Reference them using the Bicep registry syntax:
+All modules are published to the private ACR at `pocacr.azurecr.io`. Reference them using the Bicep registry syntax:
 
 ```bicep
-module myResource 'br:ayapocacr.azurecr.io/bicepmodules/<module-name>:v1' = {
+module myResource 'br:pocacr.azurecr.io/bicepmodules/<module-name>:v1' = {
   name: 'myDeploy'
   params: {
     // module-specific parameters
@@ -79,7 +79,7 @@ Each module includes an Azure DevOps pipeline (`.azurepipelines/`) that:
 3. Runs `az deployment group create` with the environment-specific parameter file
 4. Supports multi-stage deployments (PoC → Dev → Int → Prod)
 
-**Service Connection:** `Aya-DevOps-PoC-Ent-Subscription-service-connection`  
+**Service Connection:** `service-connection`  
 **Default Resource Group:** `aya-devops-bicep-poc`  
 **Default Location:** `West US`
 

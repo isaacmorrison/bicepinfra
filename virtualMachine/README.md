@@ -13,7 +13,7 @@ Deploys one or more **Azure Virtual Machines** with optional domain-join support
 ## Module Reference
 
 ```
-br:ayapocacr.azurecr.io/bicepmodules/virtualmachine:v1
+br:pocacr.azurecr.io/bicepmodules/virtualmachine:v1
 ```
 
 ## Parameters
@@ -33,7 +33,7 @@ br:ayapocacr.azurecr.io/bicepmodules/virtualmachine:v1
 ### Bicep
 
 ```bicep
-module vm 'br:ayapocacr.azurecr.io/bicepmodules/virtualmachine:v1' = {
+module vm 'br:pocacr.azurecr.io/bicepmodules/virtualmachine:v1' = {
   name: 'vmDeploy'
   params: {
     location: 'westus'

@@ -11,7 +11,7 @@ Deploys an **Azure Log Analytics Workspace** into an existing resource group.
 ## Module Reference
 
 ```
-br:ayapocacr.azurecr.io/bicepmodules/loganalytics:v1
+br:pocacr.azurecr.io/bicepmodules/loganalytics:v1
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ br:ayapocacr.azurecr.io/bicepmodules/loganalytics:v1
 ### Bicep
 
 ```bicep
-module loganalytics 'br:ayapocacr.azurecr.io/bicepmodules/loganalytics:v1' = {
+module loganalytics 'br:pocacr.azurecr.io/bicepmodules/loganalytics:v1' = {
   name: 'loganalyticsdeploy'
   params: {
     location: resourceGroup().location
@@ -48,11 +48,11 @@ az deployment group create \
 
 | Environment | Parameters File | Example Values |
 |-------------|-----------------|---------------|
-| PoC | `poc/parameters.json` | Name: `localayapoclaw` |
-| Dev | `dev/parameters.json` | Name: `ayapoclaw` |
-| Int | `int/parameters.json` | Name: `ayapoclaw` |
+| PoC | `poc/parameters.json` | Name: `localpoclaw` |
+| Dev | `dev/parameters.json` | Name: `poclaw` |
+| Int | `int/parameters.json` | Name: `poclaw` |
 | Prod | `prod/parameters.json` | Name: `modbicplan` |
-| Default | `default/parameters.json` | Name: `ayapoclaw` |
+| Default | `default/parameters.json` | Name: `poclaw` |
 
 ## Pipeline
 

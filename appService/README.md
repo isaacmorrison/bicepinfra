@@ -12,7 +12,7 @@ Deploys an **Azure App Service Plan** and an **Azure Web App** (App Service) int
 ## Module Reference
 
 ```
-br:ayapocacr.azurecr.io/bicepmodules/appservice:v1
+br:pocacr.azurecr.io/bicepmodules/appservice:v1
 ```
 
 ## Parameters
@@ -30,7 +30,7 @@ br:ayapocacr.azurecr.io/bicepmodules/appservice:v1
 ### Bicep
 
 ```bicep
-module appService 'br:ayapocacr.azurecr.io/bicepmodules/appservice:v1' = {
+module appService 'br:pocacr.azurecr.io/bicepmodules/appservice:v1' = {
   name: 'appserviceDeploy'
   params: {
     location: resourceGroup().location

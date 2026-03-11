@@ -1,7 +1,7 @@
 param logAnalyticsWorkspaceName string
 param location string = resourceGroup().location
 
-module loganalytics 'br:ayapocacr.azurecr.io/bicepmodules/loganalytics:v1' = {
+module loganalytics 'br:pocacr.azurecr.io/bicepmodules/loganalytics:v1' = {
   name: 'loganalyticsdeploy'
   params:{
     location: location

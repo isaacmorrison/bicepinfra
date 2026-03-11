@@ -4,7 +4,7 @@ param appServiceName string
 param appServicePlanName string
 param skuCapacity int
 
-module appService 'br:ayapocacr.azurecr.io/bicepmodules/appservice:v1' = {
+module appService 'br:pocacr.azurecr.io/bicepmodules/appservice:v1' = {
   name: 'appserviceDeploy'
   params:   {
     location: location

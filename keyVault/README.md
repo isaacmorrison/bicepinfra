@@ -11,7 +11,7 @@ Deploys an **Azure Key Vault** into an existing resource group.
 ## Module Reference
 
 ```
-br:ayapocacr.azurecr.io/bicepmodules/keyvault:v1
+br:pocacr.azurecr.io/bicepmodules/keyvault:v1
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ br:ayapocacr.azurecr.io/bicepmodules/keyvault:v1
 ### Bicep
 
 ```bicep
-module keyvault 'br:ayapocacr.azurecr.io/bicepmodules/keyvault:v1' = {
+module keyvault 'br:pocacr.azurecr.io/bicepmodules/keyvault:v1' = {
   name: 'keyvaultDeploy'
   params: {
     location: resourceGroup().location

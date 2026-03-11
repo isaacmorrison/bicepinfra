@@ -11,7 +11,7 @@ Deploys an **Azure Storage Account** into an existing resource group.
 ## Module Reference
 
 ```
-br:ayapocacr.azurecr.io/bicepmodules/storage:v1
+br:pocacr.azurecr.io/bicepmodules/storage:v1
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ br:ayapocacr.azurecr.io/bicepmodules/storage:v1
 ### Bicep
 
 ```bicep
-module storage 'br:ayapocacr.azurecr.io/bicepmodules/storage:v1' = {
+module storage 'br:pocacr.azurecr.io/bicepmodules/storage:v1' = {
   name: 'storageDeploy'
   params: {
     location: resourceGroup().location

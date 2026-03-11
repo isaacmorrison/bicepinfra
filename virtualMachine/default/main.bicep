@@ -6,7 +6,7 @@ param domainJoinUserPassword string
 param vmList array
 param vNet string 
 
-module vm 'br:ayapocacr.azurecr.io/bicepmodules/virtualmachine:v1' = {
+module vm 'br:pocacr.azurecr.io/bicepmodules/virtualmachine:v1' = {
   name: 'vmDeploy'
   params: {
     location:location
